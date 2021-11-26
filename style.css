@@ -16,24 +16,41 @@ body {
   padding-top: 1.75rem;
 }
 
-.webapp-header input[type="search"] {
-  padding: 0.375rem 1.3rem 0.375rem 1rem;
+.webapp-header > div:first-child {
+  display: flex;
+  background-color: white;
+  border-radius: 9999px;
+}
+
+.webapp-header > div:first-child:focus-within {
+  outline: medium solid hsl(209, 62%, 50%);
+}
+
+.webapp-header > div:first-child input[type="search"] {
+  padding: 0.375rem 0rem 0.375rem 1rem;
   min-height: 2rem;
   min-width: 12rem;
   font-weight: bold;
   font-size: 1rem;
   line-height: 1;
-  border-radius: 9999px;
   border: none;
   appearance: none;
   color: #181818;
-  border-right: 0.5rem solid transparent;
+  background-color: transparent;
+}
 
-  background-color: white;
-  background-image: url("img/icon-magnify.svg");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 1.25rem;
+.webapp-header > div:first-child input[type="search"],
+.webapp-header > div:first-child input[type="search"]:focus {
+  outline: none;
+}
+
+.webapp-header > div:first-child button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  appearance: none;
+  background-color: transparent;
 }
 
 .webapp-header input[type="search"]::placeholder {
