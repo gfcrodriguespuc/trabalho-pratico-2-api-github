@@ -7,26 +7,36 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-.webapp-header {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+.webapp-header-bg {
   min-height: 11rem;
   background: var(--webapp-gradient-1);
   padding-top: 1.75rem;
 }
 
-.webapp-header > form {
+.webapp-header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* lg boostrap */
+@media (min-width: 992px) {
+  .webapp-header {
+    justify-content: flex-end;
+  }
+}
+
+.webapp-header form {
   display: flex;
   background-color: white;
   border-radius: 9999px;
 }
 
-.webapp-header > form:focus-within {
+.webapp-header form:focus-within {
   outline: medium solid hsl(209, 62%, 50%);
 }
 
-.webapp-header > form input[type="search"] {
+.webapp-header form input[type="search"] {
   padding: 0.375rem 0rem 0.375rem 1rem;
   min-height: 2rem;
   min-width: 12rem;
@@ -39,12 +49,12 @@ body {
   background-color: transparent;
 }
 
-.webapp-header > form input[type="search"],
-.webapp-header > form input[type="search"]:focus {
+.webapp-header form input[type="search"],
+.webapp-header form input[type="search"]:focus {
   outline: none;
 }
 
-.webapp-header > form button {
+.webapp-header form button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,15 +91,31 @@ body {
 }
 
 .profile-section .profile-section__h {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.25em;
   margin-bottom: 0.25rem;
-  line-height: 1;
   color: #181818;
+  text-align: center;
 }
 
 .profile-section .profile-section__sub-h {
   font-family: "Ubuntu Mono", monospace;
   line-height: 1;
   color: #c1c1c3;
+}
+
+/* lg boostrap */
+@media (min-width: 992px) {
+  .profile-section .profile-section__picture {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  .profile-section .profile-section__h,
+  .profile-section .profile-section__sub-h {
+    text-align: left;
+  }
 }
 
 .profile-section__cards {
@@ -113,6 +139,13 @@ body {
   font-size: 1rem;
   line-height: 1.25em;
   margin: 0;
+}
+
+/* lg boostrap */
+@media (min-width: 992px) {
+  .profile-section__repositories-container {
+    margin-top: 6rem;
+  }
 }
 
 .profile-section__repositories-container > h2 {

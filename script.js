@@ -144,4 +144,3 @@ loadUserInfo();
 updateProfileSectionRepositories();
 
 // TODO: Implementar link nos repositorios
-// TODO: Implementar versão desktop

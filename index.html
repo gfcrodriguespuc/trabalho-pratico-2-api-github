@@ -20,65 +20,73 @@
   </head>
   <body>
     <header>
-      <div class="container-lg webapp-header">
-        <form id="webapp-header-form-search">
-          <input name="search" type="search" placeholder="Pesquisar..." />
-          <button>
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M6.5 0C8.22391 0 9.87721 0.684819 11.0962 1.90381C12.3152 3.12279 13 4.77609 13 6.5C13 8.11 12.41 9.59 11.44 10.73L11.71 11H12.5L17.5 16L16 17.5L11 12.5V11.71L10.73 11.44C9.59 12.41 8.11 13 6.5 13C4.77609 13 3.12279 12.3152 1.90381 11.0962C0.684819 9.87721 0 8.22391 0 6.5C0 4.77609 0.684819 3.12279 1.90381 1.90381C3.12279 0.684819 4.77609 0 6.5 0ZM6.5 2C4 2 2 4 2 6.5C2 9 4 11 6.5 11C9 11 11 9 11 6.5C11 4 9 2 6.5 2Z"
-                fill="#E46628"
-              />
-            </svg>
-          </button>
-        </form>
+      <div class="container-fluid webapp-header-bg">
+        <div class="container-lg webapp-header">
+          <form id="webapp-header-form-search">
+            <input name="search" type="search" placeholder="Pesquisar..." />
+            <button>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.5 0C8.22391 0 9.87721 0.684819 11.0962 1.90381C12.3152 3.12279 13 4.77609 13 6.5C13 8.11 12.41 9.59 11.44 10.73L11.71 11H12.5L17.5 16L16 17.5L11 12.5V11.71L10.73 11.44C9.59 12.41 8.11 13 6.5 13C4.77609 13 3.12279 12.3152 1.90381 11.0962C0.684819 9.87721 0 8.22391 0 6.5C0 4.77609 0.684819 3.12279 1.90381 1.90381C3.12279 0.684819 4.77609 0 6.5 0ZM6.5 2C4 2 2 4 2 6.5C2 9 4 11 6.5 11C9 11 11 9 11 6.5C11 4 9 2 6.5 2Z"
+                  fill="#E46628"
+                />
+              </svg>
+            </button>
+          </form>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="profile-section">
-        <header class="profile-section__header d-flex flex-column align-items-center">
-          <img id="profile-section-picture" class="profile-section__picture" src="" alt="Foto de perfil GitHub" />
-          <h1 id="profile-section-name" class="profile-section__h">Nome Sobrenome</h1>
-          <div class="profile-section__sub-h">
-            <a id="profile-section-username" href="#" target="_blank">usernamexxxx</a>
-          </div>
-        </header>
+        <div class="container">
+          <div class="row g-0 justify-content-lg-between">
+            <div class="col-12 col-lg-3">
+              <header class="profile-section__header d-flex flex-column align-items-center align-items-lg-start">
+                <img id="profile-section-picture" class="profile-section__picture" src="" alt="Foto de perfil GitHub" />
+                <h1 id="profile-section-name" class="profile-section__h">Nome Sobrenome</h1>
+                <div class="profile-section__sub-h">
+                  <a id="profile-section-username" href="#" target="_blank">usernamexxxx</a>
+                </div>
+              </header>
 
-        <div>
-          <div class="profile-section__cards container">
-            <div class="profile-section__cards__card">
-              <h2>Sobre</h2>
-              <p id="profile-section-about">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloremque totam cumque dignissimos
-                accusamus, ullam impedit
-              </p>
+              <div class="profile-section__cards container">
+                <div class="profile-section__cards__card">
+                  <h2>Sobre</h2>
+                  <p id="profile-section-about">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloremque totam cumque
+                    dignissimos accusamus, ullam impedit
+                  </p>
+                </div>
+
+                <div class="profile-section__cards__card">
+                  <h2>Local</h2>
+                  <p id="profile-section-location">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloremque totam cumque
+                    dignissimos accusamus, ullam impedit
+                  </p>
+                </div>
+
+                <div class="profile-section__cards__card">
+                  <h2>Ativo desde</h2>
+                  <p id="profile-section-created-at">28 de dezembro de 1998</p>
+                </div>
+              </div>
             </div>
 
-            <div class="profile-section__cards__card">
-              <h2>Local</h2>
-              <p id="profile-section-location">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloremque totam cumque dignissimos
-                accusamus, ullam impedit
-              </p>
-            </div>
+            <div class="col-12 col-lg-8">
+              <div class="profile-section__repositories-container container">
+                <h2>Repositórios</h2>
 
-            <div class="profile-section__cards__card">
-              <h2>Ativo desde</h2>
-              <p id="profile-section-created-at">28 de dezembro de 1998</p>
-            </div>
-          </div>
-
-          <div class="profile-section__repositories-container container">
-            <h2>Repositórios</h2>
-
-            <div id="profile-section-repositories" class="profile-section__repositories">
-              <!-- O conteudo dessa div é injetado via javascript, abaixo o modelo: -->
-              <div class="profile-section__repositories_repository">
-                <h4>repositorio-name</h4>
-                <div>
-                  <span>linguagem</span>
-                  <span>Atualizado 5 dias atrás</span>
+                <div id="profile-section-repositories" class="profile-section__repositories">
+                  <!-- O conteudo dessa div é injetado via javascript, abaixo o modelo: -->
+                  <div class="profile-section__repositories_repository">
+                    <h4>repositorio-name</h4>
+                    <div>
+                      <span>linguagem</span>
+                      <span>Atualizado 5 dias atrás</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
