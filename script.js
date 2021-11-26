@@ -116,3 +116,8 @@ async function updateProfileSectionRepositories() {
 
 loadUserInfo();
 updateProfileSectionRepositories();
+
+// TODO: Implementar pesquisa
+// TODO: Implementar link nos repositorios
+// TODO: Alterar titulo do HTML
+// TODO: Implementar versão desktop
