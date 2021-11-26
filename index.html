@@ -28,16 +28,18 @@
     <main>
       <section class="profile-section">
         <header class="profile-section__header d-flex flex-column align-items-center">
-          <img class="profile-section__picture" src="" alt="Foto de perfil GitHub" />
-          <h1 class="profile-section__h">Nome Sobrenome</h1>
-          <div class="profile-section__sub-h">usernamexxxx</div>
+          <img id="profile-section-picture" class="profile-section__picture" src="" alt="Foto de perfil GitHub" />
+          <h1 id="profile-section-name" class="profile-section__h">Nome Sobrenome</h1>
+          <div class="profile-section__sub-h">
+            <a id="profile-section-username" href="#" target="_blank">usernamexxxx</a>
+          </div>
         </header>
 
         <div>
           <div class="profile-section__cards container">
             <div class="profile-section__cards__card">
               <h2>Sobre</h2>
-              <p>
+              <p id="profile-section-about">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloremque totam cumque dignissimos
                 accusamus, ullam impedit
               </p>
@@ -45,7 +47,7 @@
 
             <div class="profile-section__cards__card">
               <h2>Local</h2>
-              <p>
+              <p id="profile-section-location">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloremque totam cumque dignissimos
                 accusamus, ullam impedit
               </p>
@@ -53,81 +55,15 @@
 
             <div class="profile-section__cards__card">
               <h2>Ativo desde</h2>
-              <p>28 de dezembro de 1998</p>
+              <p id="profile-section-created-at">28 de dezembro de 1998</p>
             </div>
           </div>
 
           <div class="profile-section__repositories-container container">
             <h2>Repositórios</h2>
 
-            <div class="profile-section__repositories">
-              <div class="profile-section__repositories_repository">
-                <h4>repositorio-name</h4>
-                <div>
-                  <span>linguagem</span>
-                  <span>Atualizado 5 dias atrás</span>
-                </div>
-              </div>
-
-              <div class="profile-section__repositories_repository">
-                <h4>repositorio-name</h4>
-                <div>
-                  <span>linguagem</span>
-                  <span>Atualizado 5 dias atrás</span>
-                </div>
-              </div>
-
-              <div class="profile-section__repositories_repository">
-                <h4>repositorio-name</h4>
-                <div>
-                  <span>linguagem</span>
-                  <span>Atualizado 5 dias atrás</span>
-                </div>
-              </div>
-
-              <div class="profile-section__repositories_repository">
-                <h4>repositorio-name</h4>
-                <div>
-                  <span>linguagem</span>
-                  <span>Atualizado 5 dias atrás</span>
-                </div>
-              </div>
-
-              <div class="profile-section__repositories_repository">
-                <h4>repositorio-name</h4>
-                <div>
-                  <span>linguagem</span>
-                  <span>Atualizado 5 dias atrás</span>
-                </div>
-              </div>
-              <div class="profile-section__repositories_repository">
-                <h4>repositorio-name</h4>
-                <div>
-                  <span>linguagem</span>
-                  <span>Atualizado 5 dias atrás</span>
-                </div>
-              </div>
-              <div class="profile-section__repositories_repository">
-                <h4>repositorio-name</h4>
-                <div>
-                  <span>linguagem</span>
-                  <span>Atualizado 5 dias atrás</span>
-                </div>
-              </div>
-              <div class="profile-section__repositories_repository">
-                <h4>repositorio-name</h4>
-                <div>
-                  <span>linguagem</span>
-                  <span>Atualizado 5 dias atrás</span>
-                </div>
-              </div>
-              <div class="profile-section__repositories_repository">
-                <h4>repositorio-name</h4>
-                <div>
-                  <span>linguagem</span>
-                  <span>Atualizado 5 dias atrás</span>
-                </div>
-              </div>
+            <div id="profile-section-repositories" class="profile-section__repositories">
+              <!-- O conteudo dessa div é injetado via javascript, abaixo o modelo: -->
               <div class="profile-section__repositories_repository">
                 <h4>repositorio-name</h4>
                 <div>
@@ -145,6 +81,11 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Incluindo lib Axios que é um HTTP client superior ao fecth e ao jquery: https://github.com/axios/axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.24.0/dist/axios.min.js"></script>
+    <!-- Incluido lib luxon para formatar datas: https://moment.github.io/luxon/#/ -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.1.1"></script>
+    <!-- Incluindo meu script -->
     <script src="script.js"></script>
   </body>
 </html>
