@@ -92,18 +92,20 @@ async function updateProfileSectionRepositories() {
     return;
   }
 
-  const userRepos = userReposApiData.map(({ name, language, updated_at, url }) => ({
+  const userRepos = userReposApiData.map(({ name, language, updated_at, html_url }) => ({
     name,
     language,
     // updatedAt: new Date(updated_at),
     updatedAtISO: updated_at,
-    url,
+    url: html_url,
   }));
 
   const profileSectionRepositoriesElem = document.querySelector("#profile-section-repositories");
   profileSectionRepositoriesElem.innerHTML = "";
   for (const repo of userRepos) {
-    const repositoryEl = document.createElement("div");
+    const repositoryEl = document.createElement("a");
+    repositoryEl.target = "_blank";
+    repositoryEl.href = repo.url;
     repositoryEl.classList.add("profile-section__repositories_repository");
     repositoryEl.innerHTML = `
       <h4>${repo.name}</h4>
@@ -142,5 +144,3 @@ function handleFormSearchSubmit(event) {
 webappHeaderFormSearchElem.addEventListener("submit", handleFormSearchSubmit);
 loadUserInfo();
 updateProfileSectionRepositories();
-
-// TODO: Implementar link nos repositorios
