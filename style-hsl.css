@@ -1,0 +1,8 @@
+:root {
+  --body-bg-color-1: hsl(262, 100%, 83%);
+  --body-bg-color-2: hsl(231, 95%, 77%);
+}
+
+body {
+  background: linear-gradient(92.06deg, var(--body-bg-color-1) 0%, var(--body-bg-color-2) 100%);
+}
