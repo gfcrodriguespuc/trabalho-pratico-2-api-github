@@ -16,17 +16,17 @@ body {
   padding-top: 1.75rem;
 }
 
-.webapp-header > div:first-child {
+.webapp-header > form {
   display: flex;
   background-color: white;
   border-radius: 9999px;
 }
 
-.webapp-header > div:first-child:focus-within {
+.webapp-header > form:focus-within {
   outline: medium solid hsl(209, 62%, 50%);
 }
 
-.webapp-header > div:first-child input[type="search"] {
+.webapp-header > form input[type="search"] {
   padding: 0.375rem 0rem 0.375rem 1rem;
   min-height: 2rem;
   min-width: 12rem;
@@ -39,21 +39,22 @@ body {
   background-color: transparent;
 }
 
-.webapp-header > div:first-child input[type="search"],
-.webapp-header > div:first-child input[type="search"]:focus {
+.webapp-header > form input[type="search"],
+.webapp-header > form input[type="search"]:focus {
   outline: none;
 }
 
-.webapp-header > div:first-child button {
+.webapp-header > form button {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 0.75rem;
   border: none;
   appearance: none;
   background-color: transparent;
 }
 
-.webapp-header input[type="search"]::placeholder {
+.webapp-header form input[type="search"]::placeholder {
   color: #c1c1c3;
   opacity: 1;
 }
