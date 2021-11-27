@@ -1,0 +1,16 @@
+:root {
+  --webapp-gradient-1: linear-gradient(102.29deg, #e65874 0%, #e46628 100%);
+}
+
+html,
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.search-results {
+}
+
+.search-results > a {
+  display: block;
+  /* text-decoration: none; */
+}
