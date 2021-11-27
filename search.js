@@ -43,6 +43,24 @@ async function githubSearchRepositories(searchText) {
 // Funções relacionadas ao Web App
 //
 
+/**
+ * Recebe um numero e retorna ele em um formato legivel.
+ * Ex: 0 -> 0
+ * Ex: 684 -> 684
+ * Ex: 9125 -> 9.1k
+ * @param {number} stargazersCount
+ * @returns
+ */
+function formatStargazersCount(stargazersCount) {
+  if (stargazersCount == null || stargazersCount == 0) {
+    return "0";
+  } else if (stargazersCount < 1000) {
+    return `${stargazersCount}`;
+  } else {
+    return `${Math.round(stargazersCount / 100) / 10}k`;
+  }
+}
+
 async function init() {
   // Mostra alerta carregando
   Swal.fire();
@@ -69,21 +87,31 @@ async function init() {
   } catch (error) {
     console.debug(error);
     Swal.fire("Opss... 😕", "O GitHub retornou um erro inesperado", "error");
-    return;
+    return; // Para a execução da função
   }
 
+  // Busca o elemento com id `search-results` e apaga tudo que tiver dentro dele
+  const searchResultsElem = document.querySelector("#search-results");
+  searchResultsElem.innerHTML = "";
+
+  // Checa se a busca não retornou resultado
   if (searchApiRes.total_count === 0 || searchApiRes.items.length === 0) {
     Swal.fire("Opss... 😕", "Sua pesquisa não retornou nenhum resultado", "info");
-    return;
+    const noResultsEl = document.createElement("div");
+    noResultsEl.classList.add("no-results");
+    noResultsEl.innerText = "A pesquisa não retornou nenhum resultado.";
+    searchResultsElem.appendChild(noResultsEl);
+    return; // Para a execução da função
   }
 
   /** @type {Array<any>} */
   const searchApiResItems = searchApiRes.items;
   const searchRes = {
     totalCount: searchApiRes.total_count,
-    items: searchApiResItems.map(({ full_name, language, updated_at, html_url, stargazers_count }) => ({
+    items: searchApiResItems.map(({ full_name, language, updated_at, html_url, stargazers_count, description }) => ({
       name: full_name,
       language,
+      description,
       // updatedAt: new Date(updated_at),
       updatedAtISO: updated_at,
       url: html_url,
@@ -91,15 +119,28 @@ async function init() {
     })),
   };
 
-  console.debug(searchRes);
-
-  const searchResultsElem = document.querySelector("#search-results");
-  searchResultsElem.innerHTML = "";
+  // Para cada resultado da busca adiciona ao `searchResultsElem` na DOM
   for (const item of searchRes.items) {
-    const resultEl = document.createElement("a");
-    resultEl.target = "_blank";
-    resultEl.href = item.url;
-    resultEl.innerText = JSON.stringify(item);
+    const resultEl = document.createElement("div");
+    resultEl.classList.add("search-result");
+    resultEl.innerHTML = `
+      <a href="${item.url}" target="_blank">${item.url}</a>
+      <a href="${item.url}" target="_blank">${item.name}</a>
+      <div>${item.description}</div>
+      <div>
+        <span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10 12.825L6.86667 14.7167L7.69167 11.15L4.92501 8.75L8.57501 8.44167L10 5.07501L11.425 8.44167L15.075 8.75L12.3083 11.15L13.1333 14.7167L10 12.825ZM18.3333 7.7L12.3417 7.19167L10 1.66667L7.65834 7.19167L1.66667 7.7L6.20834 11.6417L4.85001 17.5L10 14.3917L15.15 17.5L13.7833 11.6417L18.3333 7.7Z"
+              fill="black"
+            />
+          </svg>
+          <span>${formatStargazersCount(item.stargazersCount)}</span>
+        </span>
+        <span>${item.language != null ? item.language : ""}</span>
+        <span>Atualizado ${luxon.DateTime.fromISO(item.updatedAtISO).toRelativeCalendar()}</span>
+      </div>
+    `;
 
     searchResultsElem.appendChild(resultEl);
   }

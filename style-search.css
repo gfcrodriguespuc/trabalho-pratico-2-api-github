@@ -7,6 +7,21 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body > main {
+  flex: 1;
+  background: #e7e7e7;
+}
+
+body > footer {
+  background: #e7e7e7;
+}
+
 /**/
 /* Web App Header */
 /**/
@@ -68,14 +83,6 @@ body {
 }
 
 /**/
-/* Search Section */
-/**/
-
-.search-section {
-  background: #e7e7e7;
-}
-
-/**/
 /* Search Results */
 /**/
 
@@ -99,6 +106,7 @@ body {
   font-size: 0.75rem;
   line-height: 1;
   margin-bottom: 0.75rem;
+  color: #181818;
 }
 
 .search-results > .search-result > a:first-of-type::before {
