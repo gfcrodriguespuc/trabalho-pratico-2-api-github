@@ -31,6 +31,24 @@ body > footer {
 }
 
 /**/
+/* Web App Utilitarios */
+/**/
+
+.webapp-btn-outline-white {
+  color: white;
+  border-color: white;
+}
+
+/* Esse media ativa o hover somente em dispositivos com mouse */
+@media (hover: hover) and (pointer: fine) {
+  .webapp-btn-outline-white:hover {
+    color: #181818;
+    background-color: white;
+    border-color: white;
+  }
+}
+
+/**/
 /* Web App Header */
 /**/
 
@@ -78,6 +96,8 @@ body > footer {
   appearance: none;
   background-color: transparent;
 }
+
+/* Esse media ativa o hover somente em dispositivos com mouse */
 @media (hover: hover) and (pointer: fine) {
   .webapp-header .webapp-header-form-search__container button:hover {
     background-color: rgba(0, 0, 0, 0.125);
