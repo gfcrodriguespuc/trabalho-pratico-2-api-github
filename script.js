@@ -1,6 +1,7 @@
 const MY_GITHUB_USERNAME = "guilhermerodrigues680";
 /** @type {HTMLFormElement} */
 const webappHeaderFormSearchElem = document.querySelector("#webapp-header-form-search");
+const btnTestUsingYourGithub = document.querySelector("#btn-test-using-your-github");
 
 // Cria uma instacia do axios para usar a API do github
 // CORS GitHub: https://docs.github.com/pt/rest/overview/resources-in-the-rest-api#cross-origin-resource-sharing
@@ -42,6 +43,12 @@ async function rateLimit() {
 //
 // Funções relacionadas ao Web App
 //
+
+function checkUsernameInUrl() {
+  const pageURLSearchParams = new URLSearchParams(window.location.search);
+  const username = pageURLSearchParams.get("username");
+  console.debug("username:", username);
+}
 
 async function loadUserInfo() {
   let userApiData;
@@ -141,6 +148,36 @@ function handleFormSearchSubmit(event) {
   window.location.href = searchUrl.href;
 }
 
+function handleTestUsingYourGithub() {
+  Swal.fire({
+    title: "Digite seu Github username",
+    padding: "3em",
+    background: "#fff url(/img/trees.png)",
+    backdrop: `rgba(0,0,123,0.4) url("/img/nyan-cat.gif") left top no-repeat`,
+    input: "text",
+    inputAttributes: {
+      autocapitalize: "off",
+    },
+    showCancelButton: true,
+    confirmButtonText: "Testar!",
+    showLoaderOnConfirm: true,
+    preConfirm: (username) => {
+      if (!username) {
+        Swal.showValidationMessage("O username está vazio");
+      } else {
+        return username;
+      }
+    },
+    allowOutsideClick: () => !Swal.isLoading(),
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(result.value);
+    }
+  });
+}
+
 webappHeaderFormSearchElem.addEventListener("submit", handleFormSearchSubmit);
-loadUserInfo();
-updateProfileSectionRepositories();
+btnTestUsingYourGithub.addEventListener("click", handleTestUsingYourGithub);
+checkUsernameInUrl();
+// loadUserInfo();
+// updateProfileSectionRepositories();
