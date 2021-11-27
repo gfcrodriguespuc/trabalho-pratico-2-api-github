@@ -79,6 +79,8 @@ async function init() {
 
   // Altera o titulo da aba
   document.title = `${searchText} - Pesquisa GitHub`;
+  // Preecnhe a barra de pesquisa
+  webappHeaderFormSearchElem.elements.search.value = searchText;
 
   // Busca os dados no GitHub
   let searchApiRes;
