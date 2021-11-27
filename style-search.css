@@ -7,8 +7,69 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-.search-results {
+/**/
+/* Web App Header */
+/**/
+
+.webapp-header {
+  min-height: 11rem;
+  background: var(--webapp-gradient-1);
+  padding-top: 1.75rem;
 }
+
+.webapp-header form {
+  display: flex;
+  background-color: white;
+  border-radius: 9999px;
+}
+
+.webapp-header form:focus-within {
+  outline: medium solid hsl(209, 62%, 50%);
+}
+
+.webapp-header form input[type="search"] {
+  flex: 1;
+  padding: 0.375rem 0rem 0.375rem 1rem;
+  min-height: 2rem;
+  min-width: 12rem;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+  border: none;
+  appearance: none;
+  color: #181818;
+  background-color: transparent;
+}
+
+.webapp-header form input[type="search"],
+.webapp-header form input[type="search"]:focus {
+  outline: none;
+}
+
+.webapp-header form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 0.75rem;
+  border: none;
+  appearance: none;
+  background-color: transparent;
+}
+@media (hover: hover) and (pointer: fine) {
+  .webapp-header form button:hover {
+    background-color: rgba(0, 0, 0, 0.125);
+    border-radius: 9999px;
+  }
+}
+
+.webapp-header form input[type="search"]::placeholder {
+  color: #c1c1c3;
+  opacity: 1;
+}
+
+/**/
+/* Search Results */
+/**/
 
 .search-results > a {
   display: block;

@@ -1,4 +1,5 @@
-const MY_GITHUB_USERNAME = "guilhermerodrigues680";
+/** @type {HTMLFormElement} */
+const webappHeaderFormSearchElem = document.querySelector("#webapp-header-form-search");
 
 // Cria uma instacia do axios para usar a API do github
 // CORS GitHub: https://docs.github.com/pt/rest/overview/resources-in-the-rest-api#cross-origin-resource-sharing
@@ -43,6 +44,10 @@ async function githubSearchRepositories(searchText) {
 //
 
 async function init() {
+  // Mostra alerta carregando
+  Swal.fire();
+  Swal.showLoading();
+
   const pageURLSearchParams = new URLSearchParams(window.location.search);
   const searchText = pageURLSearchParams.get("q");
   console.debug("searchText:", searchText);
@@ -50,6 +55,7 @@ async function init() {
   // Se não for fornecido o texto da pesquisa redireciona para home
   if (!searchText) {
     window.location.href = "./index.html";
+    Swal.close();
     return;
   }
 
@@ -97,6 +103,33 @@ async function init() {
 
     searchResultsElem.appendChild(resultEl);
   }
+
+  Swal.close();
 }
+
+function handleFormSearchSubmit(event) {
+  event.preventDefault();
+  const searchTxt = webappHeaderFormSearchElem.elements.search.value;
+  if (!searchTxt) {
+    Swal.fire("Opss...", "Você precisa digitar algo na barra de pesquisa", "info");
+    return;
+  }
+  // Limpa o campo de busca
+  webappHeaderFormSearchElem.elements.search.value = "";
+
+  // https://developer.mozilla.org/pt-BR/docs/Web/API/URLSearchParams
+  // https://www.valentinog.com/blog/url/
+  // https://developer.mozilla.org/en-US/docs/Web/API/URL/URL
+  // Cria uma url com quer params no modelo: `search.html?q=Projetos+Javascript`
+  const searchUrl = new URL("search.html", window.location);
+  searchUrl.searchParams.set("q", searchTxt);
+  console.debug(searchUrl, searchUrl.href);
+
+  // https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
+  // Redirecional para o url criado
+  window.location.href = searchUrl.href;
+}
+
+webappHeaderFormSearchElem.addEventListener("submit", handleFormSearchSubmit);
 
 init();
