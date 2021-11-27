@@ -20,44 +20,52 @@
   </head>
   <body>
     <header class="container-fluid webapp-header">
-      <form id="webapp-header-form-search" class="container g-0">
-        <input name="search" type="search" placeholder="Pesquisar..." />
-        <button>
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M6.5 0C8.22391 0 9.87721 0.684819 11.0962 1.90381C12.3152 3.12279 13 4.77609 13 6.5C13 8.11 12.41 9.59 11.44 10.73L11.71 11H12.5L17.5 16L16 17.5L11 12.5V11.71L10.73 11.44C9.59 12.41 8.11 13 6.5 13C4.77609 13 3.12279 12.3152 1.90381 11.0962C0.684819 9.87721 0 8.22391 0 6.5C0 4.77609 0.684819 3.12279 1.90381 1.90381C3.12279 0.684819 4.77609 0 6.5 0ZM6.5 2C4 2 2 4 2 6.5C2 9 4 11 6.5 11C9 11 11 9 11 6.5C11 4 9 2 6.5 2Z"
-              fill="#E46628"
-            />
-          </svg>
-        </button>
+      <form id="webapp-header-form-search" class="container">
+        <div class="row">
+          <div class="webapp-header-form-search__container col-12 col-lg-9 pe-0">
+            <input name="search" type="search" placeholder="Pesquisar..." />
+            <button>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.5 0C8.22391 0 9.87721 0.684819 11.0962 1.90381C12.3152 3.12279 13 4.77609 13 6.5C13 8.11 12.41 9.59 11.44 10.73L11.71 11H12.5L17.5 16L16 17.5L11 12.5V11.71L10.73 11.44C9.59 12.41 8.11 13 6.5 13C4.77609 13 3.12279 12.3152 1.90381 11.0962C0.684819 9.87721 0 8.22391 0 6.5C0 4.77609 0.684819 3.12279 1.90381 1.90381C3.12279 0.684819 4.77609 0 6.5 0ZM6.5 2C4 2 2 4 2 6.5C2 9 4 11 6.5 11C9 11 11 9 11 6.5C11 4 9 2 6.5 2Z"
+                  fill="#E46628"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
       </form>
     </header>
 
     <main>
       <section>
-        <div id="search-results" class="search-results container">
-          <!-- O conteudo dessa div é injetado via javascript, abaixo o modelo: -->
-          <!-- <div class="search-result">
-            <a href="#" target="_blank">https://asasasasas.com</a>
-            <a href="#" target="_blank">asasasasas</a>
-            <div>Description</div>
-            <div>
-              <span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10 12.825L6.86667 14.7167L7.69167 11.15L4.92501 8.75L8.57501 8.44167L10 5.07501L11.425 8.44167L15.075 8.75L12.3083 11.15L13.1333 14.7167L10 12.825ZM18.3333 7.7L12.3417 7.19167L10 1.66667L7.65834 7.19167L1.66667 7.7L6.20834 11.6417L4.85001 17.5L10 14.3917L15.15 17.5L13.7833 11.6417L18.3333 7.7Z"
-                    fill="black"
-                  />
-                </svg>
-                <span>6.1k</span>
-              </span>
-              <span>C++</span>
-              <span>Atualizado 5 dias atrás</span>
-            </div>
-          </div> -->
+        <div class="container g-0">
+          <div class="row">
+            <div id="search-results" class="search-results col-12 col-lg-9">
+              <!-- O conteudo dessa div é injetado via javascript, abaixo o modelo: -->
+              <!-- <div class="search-result">
+                <a href="#" target="_blank">https://asasasasas.com</a>
+                <a href="#" target="_blank">asasasasas</a>
+                <div>Description</div>
+                <div>
+                  <span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10 12.825L6.86667 14.7167L7.69167 11.15L4.92501 8.75L8.57501 8.44167L10 5.07501L11.425 8.44167L15.075 8.75L12.3083 11.15L13.1333 14.7167L10 12.825ZM18.3333 7.7L12.3417 7.19167L10 1.66667L7.65834 7.19167L1.66667 7.7L6.20834 11.6417L4.85001 17.5L10 14.3917L15.15 17.5L13.7833 11.6417L18.3333 7.7Z"
+                        fill="black"
+                      />
+                    </svg>
+                    <span>6.1k</span>
+                  </span>
+                  <span>C++</span>
+                  <span>Atualizado 5 dias atrás</span>
+                </div>
+              </div> -->
 
-          <!-- Mensagem de nenhum resultado encontrado -->
-          <!-- <div class="no-results">A pesquisa não retornou nenhum resultado.</div> -->
+              <!-- Mensagem de nenhum resultado encontrado -->
+              <!-- <div class="no-results">A pesquisa não retornou nenhum resultado.</div> -->
+            </div>
+          </div>
         </div>
       </section>
     </main>
